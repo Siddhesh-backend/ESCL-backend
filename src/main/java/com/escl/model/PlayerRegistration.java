@@ -1,16 +1,12 @@
 package com.escl.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name ="player_registration")
@@ -24,29 +20,29 @@ public class PlayerRegistration {
     private  Long id;
     @NotBlank
     private String fullName;
-    @NotBlank
     private String collegeName;
-    @NotBlank
     private String branch;
-    @NotBlank
     private String year;
-    @NotBlank
     private String dob;
-    @NotBlank
     private String position;
-    @NotBlank
     private String experience;
-    @NotBlank
     private String cricheroesUrl;
-
-    private double basePrice;
-    @NotBlank
     private String email;
-    @NotBlank
-    private String  password;
-    @NotBlank
+    private String password;
     private String paymentMethod;
+    private Double basePrice;
 
     private String role;
+
+    // Team Registration Fields
+    private String collegeId;
+
+    private Integer jerseyNumber;
+
+    private String contactNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_registration_id")
+    private TeamRegistration teamRegistration;
 
 }

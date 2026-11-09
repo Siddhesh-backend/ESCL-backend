@@ -25,7 +25,7 @@ public class PlayerRegistrationResponseDTO {
 
     private String cricheroesUrl;
 
-    private double basePrice;
+    private Double basePrice;
 
     private String email;
 
